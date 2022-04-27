@@ -88,20 +88,21 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'scrooloose/syntastic'
 call vundle#end()
-
-"#######################################################
-
 "#######################################################
 " Colors
 "#######################################################
 set t_Co=256
 set background=dark
+let g:gruvbox_italic=1
+let g:gruvbox_termcolors=256
+colorscheme gruvbox
+"colorscheme molokai
 set cursorline
 hi LineNr cterm=bold ctermfg=DarkGrey ctermbg=none
 hi CursorLineNr cterm=bold ctermfg=LightBlue ctermbg=Blue
 hi CursorLine cterm=bold ctermfg=none ctermbg=DarkGrey
-highlight Comment    ctermfg=DarkCyan
-hi Comment ctermfg=033
+"highlight Comment    ctermfg=DarkCyan
+"hi Comment ctermfg=033
 highlight SpecialKey ctermfg=Yellow
 hi htmlEqualSign guifg=#00ff00
 hi htmlTag            guifg=#90b0d1 gui=NONE
@@ -109,10 +110,6 @@ hi htmlSpecialTagName guifg=#90b0d1 gui=NONE
 hi htmlTagName        guifg=#90b0d1 gui=NONE
 hi htmlEndTag         guifg=#90b0d1 gui=NONE
 hi htmlLink           guifg=blue3   gui=underline
-let g:gruvbox_italic=1
-let g:gruvbox_termcolors=256
-colorscheme gruvbox
-"colorscheme molokai
 
 "#######################################################
 " Key
