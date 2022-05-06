@@ -2,14 +2,15 @@
 "################### Kooooojun vimrc ###################
 "#######################################################
 
-" <F2>  :w save the file
-" <F3>  :q
-" <F4>  :q!
-" <F5>  nerdtree
-" <F6> YCM FixIt
-" <r> 		compile/run .c .cpp .py in ./build
-"			compile/run .java in current directory
-" <Ctrl-p>  search the file
+" <F2>  				:w save the file
+" <F3>  				:q
+" <F4>  				:q!
+" <F5>  				nerdtree
+" <F6> 					YCM FixIt
+" <r> 					compile/run .c .cpp .py in ./build
+"						compile/run .java in current directory
+" <Ctrl-x> + <Ctrl-o>	completion in css/javascript
+" <Ctrl-p>  			search the file
 
 "#######################################################
 " Basic settings
@@ -51,11 +52,13 @@ filetype indent on
 "#######################################################
 " Autocmd
 "#######################################################
-autocmd BufNewFile *.c 0r ~/template.c "C Templates
+autocmd BufNewFile *.c 0r ~/template.c 									"C Templates
 autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
 autocmd BufWritePre * :%s/\s\+$//e
-autocmd BufRead *.html set ai et sw=2 ts=2 "html setting
+autocmd BufRead *.html set ai et sw=2 ts=2 								"html setting
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS 	"javascript completion
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS              	"css completion
 "#######################################################
 " make chinese readable and writable
 "#######################################################
@@ -101,8 +104,6 @@ set cursorline
 hi LineNr cterm=bold ctermfg=DarkGrey ctermbg=none
 hi CursorLineNr cterm=bold ctermfg=LightBlue ctermbg=Blue
 hi CursorLine cterm=bold ctermfg=none ctermbg=DarkGrey
-"highlight Comment    ctermfg=DarkCyan
-"hi Comment ctermfg=033
 highlight SpecialKey ctermfg=Yellow
 hi htmlEqualSign guifg=#00ff00
 hi htmlTag            guifg=#90b0d1 gui=NONE
