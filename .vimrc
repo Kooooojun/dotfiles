@@ -1,7 +1,7 @@
 "#######################################################
 "################### Kooooojun vimrc ###################
 "#######################################################
-
+"
 " <F2>  				:w save the file
 " <F3>  				:q
 " <F4>  				:q!
@@ -11,6 +11,18 @@
 "						compile/run .java in current directory
 " <Ctrl-x> + <Ctrl-o>	completion in css/javascript
 " <Ctrl-p>  			search the file
+
+"#######################################################
+" Autocmd
+"#######################################################
+autocmd BufNewFile *.c 0r ~/template.c 									"C Templates
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
+autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufRead *.html,*.css,*,js set et sw=2 ts=2 							 	      "html setting
+autocmd BufRead *.c,*.cpp set noet sw=4 ts=4                            "C setting
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS 	"javascript completion
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS              	"css completion
 
 "#######################################################
 " Basic settings
@@ -46,34 +58,25 @@ set showmatch
 set secure
 set noswapfile
 set mouse=a 			"make nouse available
-set clipboard=unnamed
+"set clipboard=unnamed
 filetype indent on
 
-"#######################################################
-" Autocmd
-"#######################################################
-autocmd BufNewFile *.c 0r ~/template.c 									"C Templates
-autocmd WinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
-autocmd BufWritePre * :%s/\s\+$//e
-autocmd BufRead *.html set ai et sw=2 ts=2 								"html setting
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS 	"javascript completion
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS              	"css completion
 "#######################################################
 " make chinese readable and writable
 "#######################################################
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set termencoding=utf-8
 set encoding=utf-8
+
 "#######################################################
 " Plugin
 "#######################################################
 set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim' 				" Vundle
 Plugin 'ycm-core/YouCompleteMe'
-Plugin 'preservim/nerdtree'
+Plugin 'preservim/nerdtree'					" Add nerdtree
 Plugin 'patstockwell/vim-monokai-tasty'
 Plugin 'morhetz/gruvbox'
 Plugin 'luochen1990/rainbow'
@@ -90,6 +93,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'pangloss/vim-javascript'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'scrooloose/syntastic'
+Plugin 'ap/vim-css-color'					" Color previews for CSS
 call vundle#end()
 "#######################################################
 " Colors
@@ -99,18 +103,11 @@ set background=dark
 let g:gruvbox_italic=1
 let g:gruvbox_termcolors=256
 colorscheme gruvbox
-"colorscheme molokai
 set cursorline
-hi LineNr cterm=bold ctermfg=DarkGrey ctermbg=none
-hi CursorLineNr cterm=bold ctermfg=LightBlue ctermbg=Blue
-hi CursorLine cterm=bold ctermfg=none ctermbg=DarkGrey
-highlight SpecialKey ctermfg=Yellow
-hi htmlEqualSign guifg=#00ff00
-hi htmlTag            guifg=#90b0d1 gui=NONE
-hi htmlSpecialTagName guifg=#90b0d1 gui=NONE
-hi htmlTagName        guifg=#90b0d1 gui=NONE
-hi htmlEndTag         guifg=#90b0d1 gui=NONE
-hi htmlLink           guifg=blue3   gui=underline
+highlight LineNr 		cterm=bold 	ctermfg=DarkGrey 	ctermbg=none
+highlight CursorLineNr 	cterm=bold 	ctermfg=LightBlue 	ctermbg=Blue
+highlight CursorLine 	cterm=bold 	ctermfg=none 		ctermbg=DarkGrey
+highlight Comment 		cterm=none 	ctermfg=69			ctermbg=none
 
 "#######################################################
 " Key
@@ -120,6 +117,7 @@ map <silent> <F3> :update<CR>:q<CR>
 map <silent> <F4> :q!<CR>
 nnoremap <silent> <F5> :exec 'NERDTreeToggle' <CR>
 nnoremap <silent> <F6> :YcmCompleter FixIt<CR>
+nnoremap <F7> :! cat ./
 noremap <silent> r :call CompileRunGcc()<CR>
 
 " setting about ycm
@@ -131,6 +129,7 @@ let g:ycm_semantic_triggers = {
     \   'css': [ 're!^\s{4}', 're!:\s+'],
     \   'html': [ '</' ],
     \ }
+let g:ycm_max_diagnostics_to_display = 0
 
 " setting about indentLine
 let g:indentLine_enabled = 1

@@ -42,7 +42,8 @@ alias cp='cp -r'
 # -h 可以把檔案大小加上適當的單位，比較好讀
 # -l 印出除了檔名其他的資訊，ex：權限、大小
 # -F、--color 純粹是好看
-alias ls='ls -hlF --color=auto'
+alias ll='ls -hlF --color=auto'
+alias lla='ls -la'
 
 # 大推，這個 alias 非常好用（zsh 有類似功能的外掛可以裝，但是我覺得可以用 alias 就用 alias
 alias ..='cd ..'
