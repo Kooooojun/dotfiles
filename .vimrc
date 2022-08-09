@@ -104,10 +104,10 @@ let g:gruvbox_italic=1
 let g:gruvbox_termcolors=256
 colorscheme gruvbox
 set cursorline
-highlight LineNr 		cterm=bold 	ctermfg=DarkGrey 	ctermbg=none
-highlight CursorLineNr 	cterm=bold 	ctermfg=LightBlue 	ctermbg=Blue
-highlight CursorLine 	cterm=bold 	ctermfg=none 		ctermbg=DarkGrey
-highlight Comment 		cterm=none 	ctermfg=69			ctermbg=none
+highlight LineNr 		    cterm=bold 	ctermfg=DarkGrey 	ctermbg=none
+highlight CursorLineNr 	cterm=bold 	ctermfg=LightBlue ctermbg=Blue
+highlight CursorLine 	  cterm=bold 	ctermfg=none 		  ctermbg=DarkGrey
+highlight Comment 		  cterm=none 	ctermfg=189			  ctermbg=none
 
 "#######################################################
 " Key
